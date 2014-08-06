@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\면접문제풀이">
+      <UniqueIdentifier>{d8aefc2d-4c5e-45f3-a252-e8a2dd891596}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheclosetDoor.cpp">
@@ -35,6 +38,12 @@
     </ClCompile>
     <ClCompile Include="STRJOIN.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2013_낮은숫자부터나열.cpp">
+      <Filter>소스 파일\면접문제풀이</Filter>
+    </ClCompile>
+    <ClCompile Include="2014_문자열처리.cpp">
+      <Filter>소스 파일\면접문제풀이</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
