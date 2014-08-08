@@ -16,6 +16,12 @@
     <Filter Include="소스 파일\면접문제풀이">
       <UniqueIdentifier>{d8aefc2d-4c5e-45f3-a252-e8a2dd891596}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\삼성멤버십문제">
+      <UniqueIdentifier>{e11aeb9d-8789-4b5c-b677-c8042ed6eb08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\기타">
+      <UniqueIdentifier>{4313a830-d302-4ad4-a107-a0e135fdd0dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TheclosetDoor.cpp">
@@ -44,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="2014_문자열처리.cpp">
       <Filter>소스 파일\면접문제풀이</Filter>
+    </ClCompile>
+    <ClCompile Include="텍스트파일생성.cpp">
+      <Filter>소스 파일\기타</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
