@@ -61,7 +61,10 @@
       <Filter>소스 파일\삼성멤버십문제</Filter>
     </ClCompile>
     <ClCompile Include="소스2.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\삼성멤버십문제</Filter>
+    </ClCompile>
+    <ClCompile Include="소스3.cpp">
+      <Filter>소스 파일\삼성멤버십문제</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
