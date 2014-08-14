@@ -75,6 +75,9 @@
     <ClCompile Include="TheclosetDoor.cpp">
       <Filter>소스 파일\알고리즘</Filter>
     </ClCompile>
+    <ClCompile Include="소스6.cpp">
+      <Filter>소스 파일\삼성멤버십문제</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
