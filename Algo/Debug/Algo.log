@@ -1,5 +1,17 @@
-﻿빌드 시작: 2014-08-18 오전 12:25:37
+﻿빌드 시작: 2014-08-18 오전 12:27:14
+     1>2 노드의 "D:\VS-Project\Algo\Algo\Algo.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt NQUEEN.cpp
+         NQUEEN.cpp
+     1>d:\vs-project\algo\algo\nqueen.cpp(20): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 'scanf' 선언을 참조하십시오.
+     1>d:\vs-project\algo\algo\nqueen.cpp(22): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(283) : 'scanf' 선언을 참조하십시오.
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\VS-Project\Algo\Debug\Algo.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\VS-Project\Algo\Debug\Algo.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\VS-Project\Algo\Debug\Algo.lib" /MACHINE:X86 Debug\NQUEEN.obj
+         Algo.vcxproj -> D:\VS-Project\Algo\Debug\Algo.exe
+     1>"D:\VS-Project\Algo\Algo\Algo.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
 
 빌드했습니다.
 
-경과 시간: 00:00:00.01
+경과 시간: 00:00:00.74
