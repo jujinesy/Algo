@@ -25,7 +25,7 @@ int main(void) {
 		for (i = 0; i < n / 2; i++) cnt += getNQ(t, i, n, 1);
 		cnt *= 2;
 		if (n % 2 == 1) cnt += getNQ(t, i, n, 1);
-		printf("%d\n", cnt); //테스트 주석
+		printf("%d\n", cnt);
 	}
 	return 0;
 }
