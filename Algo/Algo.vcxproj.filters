@@ -54,31 +54,31 @@
     <ClCompile Include="소스5.cpp">
       <Filter>소스 파일\삼성멤버십문제</Filter>
     </ClCompile>
-    <ClCompile Include="BRACKETS2.cpp">
-      <Filter>소스 파일\알고리즘</Filter>
-    </ClCompile>
-    <ClCompile Include="DIVIS.cpp">
-      <Filter>소스 파일\알고리즘</Filter>
-    </ClCompile>
-    <ClCompile Include="Endians.cpp">
-      <Filter>소스 파일\알고리즘</Filter>
-    </ClCompile>
-    <ClCompile Include="Jolly Jumpers.cpp">
-      <Filter>소스 파일\알고리즘</Filter>
-    </ClCompile>
-    <ClCompile Include="STRJOIN.cpp">
-      <Filter>소스 파일\알고리즘</Filter>
-    </ClCompile>
     <ClCompile Include="test.cpp">
-      <Filter>소스 파일\알고리즘</Filter>
-    </ClCompile>
-    <ClCompile Include="TheclosetDoor.cpp">
       <Filter>소스 파일\알고리즘</Filter>
     </ClCompile>
     <ClCompile Include="소스6.cpp">
       <Filter>소스 파일\삼성멤버십문제</Filter>
     </ClCompile>
-    <ClCompile Include="NQUEEN.cpp">
+    <ClCompile Include="001. BRACKETS2.cpp">
+      <Filter>소스 파일\알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="002. DIVIS.cpp">
+      <Filter>소스 파일\알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="003. Endians.cpp">
+      <Filter>소스 파일\알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="004. Jolly Jumpers.cpp">
+      <Filter>소스 파일\알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="005. NQUEEN.cpp">
+      <Filter>소스 파일\알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="006.STRJOIN.cpp">
+      <Filter>소스 파일\알고리즘</Filter>
+    </ClCompile>
+    <ClCompile Include="007. TheclosetDoor.cpp">
       <Filter>소스 파일\알고리즘</Filter>
     </ClCompile>
   </ItemGroup>
