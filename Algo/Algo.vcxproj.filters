@@ -25,6 +25,12 @@
     <Filter Include="소스 파일\알고리즘">
       <UniqueIdentifier>{0c80b6f5-7ca9-40bf-a2c3-fbd5e77e61e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\lgcodechallenger">
+      <UniqueIdentifier>{ba91c252-e3cc-451f-a3e1-130eda985111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\lgcodechallenger\연습">
+      <UniqueIdentifier>{e18e9e13-0821-49a4-b391-eda3d5ad6a2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2013_낮은숫자부터나열.cpp">
@@ -81,13 +87,19 @@
     <ClCompile Include="007. TheclosetDoor.cpp">
       <Filter>소스 파일\알고리즘</Filter>
     </ClCompile>
+    <ClCompile Include="문제1_Small.cpp">
+      <Filter>소스 파일\lgcodechallenger\연습</Filter>
+    </ClCompile>
+    <ClCompile Include="문제1_large.cpp">
+      <Filter>소스 파일\lgcodechallenger\연습</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="output.txt">
-      <Filter>소스 파일\알고리즘</Filter>
-    </None>
     <None Include="input.txt">
-      <Filter>소스 파일\알고리즘</Filter>
+      <Filter>소스 파일</Filter>
+    </None>
+    <None Include="output.txt">
+      <Filter>소스 파일</Filter>
     </None>
   </ItemGroup>
 </Project>
