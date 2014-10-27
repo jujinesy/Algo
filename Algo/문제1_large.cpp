@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX 200    // (10^MAX - 1) * (10^MAX - 1) 까지 계산됩니다. 
-FILE *tempFile;
+FILE *tempFile; //
 
 void main()
 {
